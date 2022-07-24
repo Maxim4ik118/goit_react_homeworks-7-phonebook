@@ -7,7 +7,7 @@ export const getContatcts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const res = await fetch(
-        'https://62dd32e957ac3c3f3c661287.mockapi.io/api/contacts'
+        `${process.env.REACT_APP_BASE_URL}/contacts`
       );
       const data = await res.json();
       return data;
@@ -21,7 +21,7 @@ export const deleteContact = createAsyncThunk(
   async (contactId, { rejectWithValue }) => {
     try {
       const res = await fetch(
-        `https://62dd32e957ac3c3f3c661287.mockapi.io/api/contacts/${contactId}`,
+        `${process.env.REACT_APP_BASE_URL}/contacts/${contactId}`,
         { method: 'DELETE' }
       );
       const data = await res.json();
@@ -36,7 +36,7 @@ export const addContact = createAsyncThunk(
   async (body, { rejectWithValue }) => {
     try {
       const res = await fetch(
-        `https://62dd32e957ac3c3f3c661287.mockapi.io/api/contacts`,
+        `${process.env.REACT_APP_BASE_URL}/contacts`,
         {
           method: 'POST',
           body: JSON.stringify(body),
