@@ -15,9 +15,6 @@ const initialState = {
 };
 
 export default createReducer(initialState, {
-  [addContact]: (state, action) => {
-    state.contacts = [...state.contacts, action.payload];
-  },
   [setFilterTerm]: (state, action) => {
     state.filterTerm = action.payload;
   },
